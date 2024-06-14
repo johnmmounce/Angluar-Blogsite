@@ -11,24 +11,34 @@ import { stat } from 'fs';
 })
 export class AppComponent{
 
-  name?:string; 
-  email?:string;
-  address?:string;
+  title:string = "Angular";
+  count:number= 123412;
+  decimal: number= 2.13414423
+  price: number= 99.99
 
-  userArray: Array<any> = [];
+  dummyText: string = "agfhdjdghsfghdsrtlms'd;fklgjs';ldkfvbm'sdl;kfrgjs';ldckfv,mb'sdl;fkgj;sldfkjs'df;lkgj"
+  
+  today:Date = new Date();
 
-  onClick(){
-    this.userArray.push({
-      "name": this.name,
-      "email": this.email,
-      "address": this.address
-    })
-
-    console.log(this.userArray)
+  postObj : object = {
+    id: 1,
+    postTitle: 'post 1'
   }
 
-  onDelete(index:any){
-    this.userArray.splice(index, 1);
+  postArray: Array<string> = [
+    "post1",
+    "post2",
+    "post3",
+    "post4",
+    "post5",
+    "post6"
+  ]
+
+  userDetails = {
+    name: "user 1",
+    city: "newyork",
+    countryCode: "US"
   }
+
 
 }
