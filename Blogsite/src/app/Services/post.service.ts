@@ -1,4 +1,13 @@
+import { Injectable } from "@angular/core"
+
+
+@Injectable({
+    providedIn: 'root',
+})
+
 export class PostService {
+
+
     postList: Array<any> = [
         {id: 1, postTitle: "post 1"},
         {id: 2, postTitle: "post 2"},
@@ -7,4 +16,8 @@ export class PostService {
         {id: 5, postTitle: "post 5"},
         {id: 6, postTitle: "post 6"},
     ]
+
+    addPost(data:any){
+        this.postList.push(data);
+    }
 }

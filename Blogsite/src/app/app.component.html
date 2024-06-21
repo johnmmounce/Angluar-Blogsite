@@ -1,14 +1,26 @@
-<h1>{{ title | lowercase}}</h1>
-<h1>{{ count | number}}</h1>
-<h1>{{ decimal | number:'3.2-2'}}</h1>
-<h1>{{ price | currency:"USD": false : '2.1-1'}}</h1>
-<h1>{{ today | date:'shortDate'}}</h1>
+<div class="container mt-5">
 
-<p>{{ postObj | json }}</p>
+    <div class="form-area">
+        <form #f = "ngForm" (submit)="onSubmit(f)">
 
-<h3>{{ 0.567 | percent : '1.1-1'}}</h3>
+            <div class="form-group">
+                <label> First Name </label>
+                <input type="text" placeholder="Full Name" class="form-control">
+            </div>
+        
+            <div class="form-group">
+                <label> Email </label>
+                <input type="email" placeholder="Email" class="form-control">
+            </div>
+                
+            <div class="form-group">
+                <label> Address </label>
+                <textarea cols="30" rows="10" placeholder="Address" class="form-control"></textarea>
+            </div>
+        
+            <button type="submit" class="btn btn-primary"> Submit </button>
+            
+         </form>
 
-<h3>{{postArray | slice : 2:4}}</h3>
-
-<!-- custom pipe -->
-<p>{{ dummyText | append}}</p>
+    </div>
+</div>
