@@ -1,7 +1,7 @@
 <div class="container mt-5">
 
     <div class="form-area">
-        <form #f = "ngForm" (submit)="onSubmit(f)">
+        <form #f = "ngForm" (ngSubmit)="onSubmit(f)">
             <!-- fist name validation. Must be between 5-10 chars -->
             <div class="form-group">
                 <label> First Name </label>
@@ -39,6 +39,7 @@
                 #email = 'ngModel'  
                 pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" 
                 required
+                [ngClass]="{ 'is-invalid' : email.touched && email.invalid }"
                 >
                 <div *ngIf="email.errors?.['required']">
                     <div class="alert alert-danger" *ngIf="email.touched && email.invalid" > Email is required... </div>
@@ -58,7 +59,8 @@
                 name="adress" 
                 ngModel 
                 #address = 'ngModel' 
-                required=""
+                required
+                [ngClass]="{ 'is-invalid' : address.touched && address.invalid }"
                 ></textarea>
 
                 <div *ngIf="address.errors?.['required']">
@@ -66,7 +68,7 @@
                 </div>
             </div>
         
-            <button type="submit" class="btn btn-primary"> Submit </button>
+            <button type="submit" class="btn btn-primary" [disabled]="f.invalid"> Submit </button>
             
          </form>
 
