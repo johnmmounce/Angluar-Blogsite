@@ -3,7 +3,7 @@ import { PostComponent } from './post/post.component';
 import { log } from 'console';
 import { Key } from 'readline';
 import { stat } from 'fs';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +15,10 @@ export class AppComponent{
     constructor(){ }
 
     onSubmit(f:NgForm){
+      console.log(f)
+    }
+
+    getValue(f:NgModel){
       console.log(f)
     }
 
