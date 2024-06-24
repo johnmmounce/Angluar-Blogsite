@@ -72,5 +72,58 @@
             
          </form>
 
+
+         
+         <!-- Reactive form starts here -->
+          <br>
+          <br>
+          <br>
+          <h1>Reactive Form</h1>
+         <!-- bind new instance of from to this form using formControlName= 'variable name'-->
+         <form [formGroup]="form">
+            <div class="form-group">
+                <label> First Name </label>
+                <input 
+                type="text" 
+                placeholder="Full Name" 
+                class="form-control" 
+                name="fullName" 
+                formControlName = 'fullName'  
+                >
+                <!-- add error message based on fullName validators from app.component.ts file -->
+                <div class="alert alert-danger" *ngIf="fullName.touched && fullName.invalid">
+                    <div *ngIf="fullName.errors?.['required']">The Full Name is Required...</div>
+                    <div *ngIf="fullName.errors?.['minlength']">The Full Name must be at least 5 characters...</div>
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <label> Email </label>
+                <input type="email" 
+                placeholder="Email" 
+                class="form-control" 
+                name="email" 
+                formControlName= 'email'
+                >
+                
+            </div>
+
+            
+            <div class="form-group">
+                <label> Address </label>
+                <textarea cols="30" 
+                rows="10" 
+                placeholder="Address" 
+                class="form-control" 
+                name="adress" 
+                formControlName = 'address'
+                ></textarea>
+
+            </div>
+        
+            <button type="submit" class="btn btn-primary"> Submit </button>
+            
+         </form>
+
     </div>
 </div>

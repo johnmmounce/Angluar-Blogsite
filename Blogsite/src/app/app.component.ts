@@ -3,7 +3,8 @@ import { PostComponent } from './post/post.component';
 import { log } from 'console';
 import { Key } from 'readline';
 import { stat } from 'fs';
-import { FormControl, NgForm, NgModel } from '@angular/forms';
+import { NgForm, NgModel, Validators } from '@angular/forms';
+import{ FormGroup, FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,23 @@ import { FormControl, NgForm, NgModel } from '@angular/forms';
 })
 export class AppComponent{
 
-    constructor(){ }
+
+    form: any;
+
+    constructor(){
+      // make new istance of template form 
+      this.form = new FormGroup({
+        fullName: new FormControl('', [
+          Validators.required,
+          Validators.minLength(5)
+        ]),
+        email: new FormControl(),
+        address: new FormControl()
+
+      })
+
+
+     }
 
     onSubmit(f:NgForm){
       console.log(f.value)
